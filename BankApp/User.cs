@@ -1,4 +1,4 @@
-﻿using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
 using System.Collections.Generic;
 
@@ -6,12 +6,15 @@ namespace BankApp
 {
     public class User
     {
+
+
         public string username { get; set; }
         public string password { get; set; }
         public string balance { get; set; }
 
         public bool isValidUser(string username, string password)
         {
+
             AmazonDynamoDBClient client = new AmazonDynamoDBClient();
             string tableName = "userInfo";
 
@@ -62,11 +65,33 @@ namespace BankApp
             this.balance = "0";
             client.PutItem(request);
         }
-    }
 
-    //User user1 = new User();
-    //User user2 = new User();
-    //user1.registeruser(name,password)
-    //User.validateUser(user1);
+
+        //Update balance function to call when deposit withdraw or transfer has been made.
+
+        public void updateBalance(string username, string newBalance, string currentBalance)
+        {
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
+            string tableName = "userInfo";
+
+            var request = new UpdateItemRequest
+            {
+                TableName = tableName,
+                Key = new Dictionary<string, AttributeValue>() { { "username", new AttributeValue { S = username } } },
+                ExpressionAttributeNames = new Dictionary<string, string>()
+    {
+        {"#B", "balance"},
+    },
+                ExpressionAttributeValues = new Dictionary<string, AttributeValue>()
+    {
+        {":b",new AttributeValue { N = newBalance}},
+    },
+
+                UpdateExpression = "SET #B = :b"
+            };
+            var response = client.UpdateItem(request);
+
+        }
+    }
 
 }
