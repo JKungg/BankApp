@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -57,12 +57,17 @@ namespace BankApp
 
 
                 // Need to make function to update balance to DynamoDB
-                //updateBalance()
+                user.updateBalance(user.username, newBal.ToString(), currentBal.ToString());
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void withdrawBtn_Click(object sender, EventArgs e)
+        {
 
         }
     }
