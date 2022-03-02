@@ -27,19 +27,48 @@ namespace BankApp
 
             Dictionary<string, AttributeValue> item = result.Item;
 
+            try
+            {
+                if (item["username"] != null)
+                    if (username == item["username"].S && password == item["password"].S)
+                    {
+                        this.username = username;
+                        this.password = password;
+                        this.balance = item["balance"].N;
+                        return true;
+                    }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
 
-            if (item["username"] != null)
-                if (username == item["username"].S && password == item["password"].S)
+        }
+
+        public bool checkIfUserExists(string givenUsername)
+        {
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
+            string tableName = "userInfo";
+
+            GetItemRequest request = new GetItemRequest
+            {
+                TableName = tableName,
+                Key = new Dictionary<string, AttributeValue>() { { "username", new AttributeValue { S = givenUsername } } },
+            };
+            var result = client.GetItem(request);
+
+            Dictionary<string, AttributeValue> item = result.Item;
+
+            try
+            {
+                if (item["username"].S == givenUsername)
                 {
-                    this.username = username;
-                    this.password = password;
-                    this.balance = item["balance"].N;
                     return true;
                 }
-            return false;
-
-
-
+                return false;
+            }
+            catch { return false; }
 
         }
 

@@ -149,8 +149,7 @@
             // 
             // registerScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(100)))), ((int)(((byte)(140)))));
             this.ClientSize = new System.Drawing.Size(778, 500);
             this.Controls.Add(this.exitBtn);

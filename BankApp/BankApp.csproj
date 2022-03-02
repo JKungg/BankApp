@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="depositSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="depositSplash.Designer.cs">
+      <DependentUpon>depositSplash.cs</DependentUpon>
+    </Compile>
     <Compile Include="loginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,7 +85,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="userAuthentication.cs" />
+    <EmbeddedResource Include="depositSplash.resx">
+      <DependentUpon>depositSplash.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loginScreen.resx">
       <DependentUpon>loginScreen.cs</DependentUpon>
     </EmbeddedResource>

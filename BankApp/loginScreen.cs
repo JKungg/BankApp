@@ -26,7 +26,7 @@ namespace BankApp
 
         private void exitBtn_Click(object sender, System.EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
     }
 }

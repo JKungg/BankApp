@@ -28,46 +28,61 @@ namespace BankApp
 
             balanceLabel.Text = user.balance;
 
-            helloLabel.Text = "Hello, " + user.username;
+            helloLabel.Text = "Hello, " + user.username.ToUpper();
         }
 
+        //Deposit Button Dashboard Click
         private void button2_Click(object sender, EventArgs e)
         {
-            resetButtonFont();
-            depositPanel.Visible = true;
-            depositBtn.Font = new Font("Bahnschrift SemiBold", depositBtn.Font.Size);
-
+            new depositSplash().Show();
+            this.Hide();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                double currentBal = double.Parse(user.balance);
+        //Confirm Deposit Button
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        double currentBal = double.Parse(user.balance);
 
-                double depositAmt = double.Parse(depositTextBox.Text);
+        //        double depositAmt = double.Parse(depositTextBox.Text);
 
-                double newBal = currentBal + depositAmt;
-                user.balance = newBal.ToString();
+        //        double newBal = currentBal + depositAmt;
+        //        user.balance = newBal.ToString();
 
 
-                // Need to make function to update balance to DynamoDB
-                user.updateBalance(user.username, newBal.ToString(), currentBal.ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        //        // Need to make function to update balance to DynamoDB
+        //        user.updateBalance(user.username, newBal.ToString(), currentBal.ToString());
+        //        balanceLabel.Text = user.balance;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
 
-        }
+        //}
 
+        //Withdraw button dashboard click
         private void withdrawBtn_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            new loginScreen().Show();
+            this.Hide();
+        }
+
+        private void withdrawBtn_Click_1(object sender, EventArgs e)
+        {
+            resetButtonFont();
+            withdrawBtn.Font = new Font("Bahnschrift SemiBold", depositBtn.Font.Size);
 
         }
     }

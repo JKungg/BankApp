@@ -1,6 +1,6 @@
 ﻿namespace BankApp
 {
-    partial class mainSplash
+    partial class depositSplash
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.helloLabel = new System.Windows.Forms.Label();
             this.settingsBtn = new System.Windows.Forms.Button();
@@ -43,19 +44,20 @@
             this.accountBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.exitBtn = new System.Windows.Forms.Button();
-            this.accountPanel = new System.Windows.Forms.Panel();
-            this.logoutBtn = new System.Windows.Forms.Button();
-            this.balanceLabel = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.balanceLabel = new System.Windows.Forms.Label();
+            this.depositPanel = new System.Windows.Forms.Panel();
+            this.confirmDepositBtn = new System.Windows.Forms.Button();
+            this.depositTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.exitBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.accountPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.depositPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelBankName
@@ -123,6 +125,16 @@
             this.panel2.Size = new System.Drawing.Size(239, 2);
             this.panel2.TabIndex = 5;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BankApp.Properties.Resources.kindpng_1607808;
+            this.pictureBox2.Location = new System.Drawing.Point(18, 79);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(199, 93);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(150)))));
@@ -182,34 +194,33 @@
             this.withdrawBtn.TabIndex = 7;
             this.withdrawBtn.Text = "Withdraw";
             this.withdrawBtn.UseVisualStyleBackColor = false;
-            this.withdrawBtn.Click += new System.EventHandler(this.withdrawBtn_Click_1);
             // 
             // depositBtn
             // 
             this.depositBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(150)))));
             this.depositBtn.FlatAppearance.BorderSize = 0;
             this.depositBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.depositBtn.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depositBtn.Font = new System.Drawing.Font("Bahnschrift SemiBold", 15.75F);
             this.depositBtn.Location = new System.Drawing.Point(0, 282);
             this.depositBtn.Name = "depositBtn";
             this.depositBtn.Size = new System.Drawing.Size(239, 55);
             this.depositBtn.TabIndex = 6;
             this.depositBtn.Text = "Deposit";
             this.depositBtn.UseVisualStyleBackColor = false;
-            this.depositBtn.Click += new System.EventHandler(this.button2_Click);
             // 
             // accountBtn
             // 
             this.accountBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(150)))));
             this.accountBtn.FlatAppearance.BorderSize = 0;
             this.accountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.accountBtn.Font = new System.Drawing.Font("Bahnschrift SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountBtn.Font = new System.Drawing.Font("Bahnschrift", 15.75F);
             this.accountBtn.Location = new System.Drawing.Point(0, 230);
             this.accountBtn.Name = "accountBtn";
             this.accountBtn.Size = new System.Drawing.Size(239, 55);
             this.accountBtn.TabIndex = 5;
             this.accountBtn.Text = "Account";
             this.accountBtn.UseVisualStyleBackColor = false;
+            this.accountBtn.Click += new System.EventHandler(this.accountBtn_Click);
             // 
             // panel3
             // 
@@ -230,6 +241,16 @@
             this.panel7.Size = new System.Drawing.Size(344, 209);
             this.panel7.TabIndex = 5;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BankApp.Properties.Resources.bank_meta;
+            this.pictureBox1.Location = new System.Drawing.Point(98, 49);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(151, 142);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Black;
@@ -238,6 +259,65 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(740, 2);
             this.panel8.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(204, 36);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Your Balance:    $";
+            // 
+            // balanceLabel
+            // 
+            this.balanceLabel.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.balanceLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.balanceLabel.Location = new System.Drawing.Point(196, 6);
+            this.balanceLabel.Name = "balanceLabel";
+            this.balanceLabel.Size = new System.Drawing.Size(232, 37);
+            this.balanceLabel.TabIndex = 14;
+            this.balanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // depositPanel
+            // 
+            this.depositPanel.Controls.Add(this.confirmDepositBtn);
+            this.depositPanel.Controls.Add(this.balanceLabel);
+            this.depositPanel.Controls.Add(this.depositTextBox);
+            this.depositPanel.Controls.Add(this.label1);
+            this.depositPanel.Controls.Add(this.label3);
+            this.depositPanel.Location = new System.Drawing.Point(260, 238);
+            this.depositPanel.Name = "depositPanel";
+            this.depositPanel.Size = new System.Drawing.Size(706, 245);
+            this.depositPanel.TabIndex = 15;
+            // 
+            // confirmDepositBtn
+            // 
+            this.confirmDepositBtn.Location = new System.Drawing.Point(402, 56);
+            this.confirmDepositBtn.Name = "confirmDepositBtn";
+            this.confirmDepositBtn.Size = new System.Drawing.Size(170, 30);
+            this.confirmDepositBtn.TabIndex = 20;
+            this.confirmDepositBtn.Text = "Confirm Deposit";
+            this.confirmDepositBtn.UseVisualStyleBackColor = true;
+            this.confirmDepositBtn.Click += new System.EventHandler(this.confirmDepositBtn_Click);
+            // 
+            // depositTextBox
+            // 
+            this.depositTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.depositTextBox.Font = new System.Drawing.Font("Bahnschrift SemiLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depositTextBox.Location = new System.Drawing.Point(214, 55);
+            this.depositTextBox.Name = "depositTextBox";
+            this.depositTextBox.Size = new System.Drawing.Size(158, 33);
+            this.depositTextBox.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Bahnschrift SemiLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(231, 36);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Deposit Amount:";
             // 
             // exitBtn
             // 
@@ -252,67 +332,7 @@
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // accountPanel
-            // 
-            this.accountPanel.Controls.Add(this.logoutBtn);
-            this.accountPanel.Controls.Add(this.balanceLabel);
-            this.accountPanel.Controls.Add(this.label10);
-            this.accountPanel.Location = new System.Drawing.Point(260, 238);
-            this.accountPanel.Name = "accountPanel";
-            this.accountPanel.Size = new System.Drawing.Size(706, 245);
-            this.accountPanel.TabIndex = 25;
-            // 
-            // logoutBtn
-            // 
-            this.logoutBtn.Location = new System.Drawing.Point(276, 162);
-            this.logoutBtn.Name = "logoutBtn";
-            this.logoutBtn.Size = new System.Drawing.Size(176, 39);
-            this.logoutBtn.TabIndex = 20;
-            this.logoutBtn.Text = "Logout";
-            this.logoutBtn.UseVisualStyleBackColor = true;
-            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
-            // 
-            // balanceLabel
-            // 
-            this.balanceLabel.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balanceLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.balanceLabel.Location = new System.Drawing.Point(419, 9);
-            this.balanceLabel.Name = "balanceLabel";
-            this.balanceLabel.Size = new System.Drawing.Size(232, 37);
-            this.balanceLabel.TabIndex = 14;
-            this.balanceLabel.Text = "1515";
-            this.balanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(209, 13);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(204, 36);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Your Balance:    $";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BankApp.Properties.Resources.bank_meta;
-            this.pictureBox1.Location = new System.Drawing.Point(98, 49);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(151, 142);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::BankApp.Properties.Resources.kindpng_1607808;
-            this.pictureBox2.Location = new System.Drawing.Point(18, 79);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(199, 93);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
-            // mainSplash
+            // depositSplash
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(100)))), ((int)(((byte)(140)))));
@@ -322,19 +342,20 @@
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.accountPanel);
+            this.Controls.Add(this.depositPanel);
             this.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "mainSplash";
+            this.Name = "depositSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "mainSplash";
-            this.Load += new System.EventHandler(this.mainSplash_Load);
+            this.Text = "depositSplash";
+            this.Load += new System.EventHandler(this.depositSplash_Load);
             this.panel1.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.accountPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.depositPanel.ResumeLayout(false);
+            this.depositPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -359,10 +380,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Panel accountPanel;
-        private System.Windows.Forms.Button logoutBtn;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label balanceLabel;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel depositPanel;
+        private System.Windows.Forms.TextBox depositTextBox;
+        private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Button confirmDepositBtn;
+        private System.Windows.Forms.Label label1;
     }
 }
