@@ -1,21 +1,34 @@
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
+using System;
 using System.Collections.Generic;
 
 namespace BankApp
 {
     public class User
     {
-
-
         public string username { get; set; }
         public string password { get; set; }
         public string balance { get; set; }
+        //public string[] creds = System.IO.File.ReadAllLines("C:\\Users\\jackd\\Documents\\creds.txt"); // insert local file with creds here.
+        //public string credID = creds[0];
+        //public string secretID = creds[1];
+        public string[] getAWSCred()
+        {
+            var creds = System.IO.File.ReadAllLines("C:\\Users\\jackd\\Documents\\creds.txt");
+            string credID = creds[0];
+            string secretID = creds[1];
+
+            return new[] { credID, secretID };
+        }
 
         public bool isValidUser(string username, string password)
         {
-
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
+            string credID = getAWSCred()[0];
+            string secretID = getAWSCred()[1];
+            var awsCredentials = new Amazon.Runtime.BasicAWSCredentials(credID, secretID);
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient(awsCredentials, Amazon.RegionEndpoint.USEast1);
+            Console.WriteLine("Client Created");
             string tableName = "userInfo";
 
             GetItemRequest request = new GetItemRequest
@@ -46,9 +59,14 @@ namespace BankApp
 
         }
 
+
         public bool checkIfUserExists(string givenUsername)
         {
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
+
+            string credID = getAWSCred()[0];
+            string secretID = getAWSCred()[1];
+            var awsCredentials = new Amazon.Runtime.BasicAWSCredentials(credID, secretID);
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient(awsCredentials, Amazon.RegionEndpoint.USEast1);
             string tableName = "userInfo";
 
             GetItemRequest request = new GetItemRequest
@@ -57,6 +75,7 @@ namespace BankApp
                 Key = new Dictionary<string, AttributeValue>() { { "username", new AttributeValue { S = givenUsername } } },
             };
             var result = client.GetItem(request);
+            Console.WriteLine("Request sent");
 
             Dictionary<string, AttributeValue> item = result.Item;
 
@@ -74,7 +93,10 @@ namespace BankApp
 
         public void registerUser(string givenUsername, string givenPassword)
         {
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
+            string credID = getAWSCred()[0];
+            string secretID = getAWSCred()[1];
+            var awsCredentials = new Amazon.Runtime.BasicAWSCredentials(credID, secretID);
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient(awsCredentials, Amazon.RegionEndpoint.USEast1);
             string tableName = "userInfo";
 
             var request = new PutItemRequest
@@ -87,12 +109,13 @@ namespace BankApp
           { "balance", new AttributeValue { N = "0" }}
       }
 
-
             };
+
             this.username = givenUsername;
             this.password = givenPassword;
             this.balance = "0";
             client.PutItem(request);
+            Console.WriteLine("Request sent");
         }
 
 
@@ -119,6 +142,7 @@ namespace BankApp
                 UpdateExpression = "SET #B = :b"
             };
             var response = client.UpdateItem(request);
+            Console.WriteLine("Request sent");
 
         }
     }

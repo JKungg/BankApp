@@ -1,5 +1,4 @@
-﻿using Amazon.Runtime.CredentialManagement;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace BankApp
@@ -10,23 +9,25 @@ namespace BankApp
         {
             InitializeComponent();
 
-            var creds = System.IO.File.ReadAllLines("C:\\Users\\jackd\\Documents\\creds.txt"); // insert local file with creds here.
-            string credID = creds[0];
-            string secretID = creds[1];
-            WriteProfile("user", credID, secretID);
+            //var creds = System.IO.File.ReadAllLines("C:\\Users\\jackd\\Documents\\creds.txt"); // insert local file with creds here.
+            //string credID = creds[0];
+            //string secretID = creds[1];
+            ////var credentials = new Amazon.Runtime.BasicAWSCredentials(credID, secretID);
+            //WriteProfile("user", credID, secretID);
         }
 
-        void WriteProfile(string profileName, string keyId, string secret)
-        {
-            var options = new CredentialProfileOptions
-            {
-                AccessKey = keyId,
-                SecretKey = secret
-            };
-            var profile = new CredentialProfile(profileName, options);
-            var netSdkStore = new NetSDKCredentialsFile();
-            netSdkStore.RegisterProfile(profile);
-        }
+        //void WriteProfile(string profileName, string keyId, string secret)
+        //{
+        //    var options = new CredentialProfileOptions
+        //    {
+        //        AccessKey = keyId,
+        //        SecretKey = secret
+        //    };
+        //    var profile = new CredentialProfile(profileName, options);
+        //    profile.Region = Amazon.RegionEndpoint.USIsobEast1;
+        //    var netSdkStore = new NetSDKCredentialsFile();
+        //    netSdkStore.RegisterProfile(profile);
+        //}
 
 
 

@@ -53,6 +53,7 @@
             this.depositTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.logoutBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel7.SuspendLayout();
@@ -281,6 +282,7 @@
             // 
             // depositPanel
             // 
+            this.depositPanel.Controls.Add(this.logoutBtn);
             this.depositPanel.Controls.Add(this.confirmDepositBtn);
             this.depositPanel.Controls.Add(this.balanceLabel);
             this.depositPanel.Controls.Add(this.depositTextBox);
@@ -331,6 +333,15 @@
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // logoutBtn
+            // 
+            this.logoutBtn.Location = new System.Drawing.Point(265, 175);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(176, 39);
+            this.logoutBtn.TabIndex = 21;
+            this.logoutBtn.Text = "Logout";
+            this.logoutBtn.UseVisualStyleBackColor = true;
             // 
             // depositSplash
             // 
@@ -387,5 +398,6 @@
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Button confirmDepositBtn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button logoutBtn;
     }
 }
