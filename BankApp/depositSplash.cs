@@ -1,12 +1,11 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace BankApp
 {
     public partial class depositSplash : Form
     {
-
-        string balance = mainSplash.user.balance;
+        string balance = mainSplash.user.getUserBalance(mainSplash.user.username);
         string username = mainSplash.user.username;
         public depositSplash()
         {
@@ -51,6 +50,12 @@ namespace BankApp
         {
             this.Hide();
             new mainSplash().Show();
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            new loginScreen().Show();
+            this.Hide();
         }
     }
 }
