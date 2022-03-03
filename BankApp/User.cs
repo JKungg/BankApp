@@ -10,12 +10,10 @@ namespace BankApp
         public string username { get; set; }
         public string password { get; set; }
         public string balance { get; set; }
-        //public string[] creds = System.IO.File.ReadAllLines("C:\\Users\\jackd\\Documents\\creds.txt"); // insert local file with creds here.
-        //public string credID = creds[0];
-        //public string secretID = creds[1];
+
         public string[] getAWSCred()
         {
-            var creds = System.IO.File.ReadAllLines("C:\\Users\\jackd\\Documents\\creds.txt");
+            var creds = System.IO.File.ReadAllLines("");
             string credID = creds[0];
             string secretID = creds[1];
 
@@ -123,7 +121,10 @@ namespace BankApp
 
         public void updateBalance(string username, string newBalance, string currentBalance)
         {
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
+            string credID = getAWSCred()[0];
+            string secretID = getAWSCred()[1];
+            var awsCredentials = new Amazon.Runtime.BasicAWSCredentials(credID, secretID);
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient(awsCredentials, Amazon.RegionEndpoint.USEast1);
             string tableName = "userInfo";
 
             var request = new UpdateItemRequest
@@ -144,6 +145,28 @@ namespace BankApp
             var response = client.UpdateItem(request);
             Console.WriteLine("Request sent");
 
+        }
+
+        public string getUserBalance(string username)
+        {
+            string credID = getAWSCred()[0];
+            string secretID = getAWSCred()[1];
+            var awsCredentials = new Amazon.Runtime.BasicAWSCredentials(credID, secretID);
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient(awsCredentials, Amazon.RegionEndpoint.USEast1);
+            string tableName = "userInfo";
+
+            GetItemRequest request = new GetItemRequest
+            {
+                TableName = tableName,
+                Key = new Dictionary<string, AttributeValue>() { { "username", new AttributeValue { S = username } } },
+            };
+            var result = client.GetItem(request);
+            Console.WriteLine("Request sent");
+
+            Dictionary<string, AttributeValue> item = result.Item;
+            string balance = item["balance"].N;
+            this.balance = balance;
+            return this.balance;
         }
     }
 
